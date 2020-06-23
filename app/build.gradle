@@ -16,6 +16,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,9 +30,22 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
+    testImplementation "androidx.test:core:$test_version"
+    testImplementation "androidx.test:core-ktx:$test_version"
+    testImplementation "androidx.test:runner:$test_version"
+    testImplementation "androidx.test:rules:$test_version"
+    testImplementation "androidx.arch.core:core-testing:$core_testing_version"
+    testImplementation "androidx.test.ext:junit:$test_ext_version"
+    testImplementation "androidx.test.ext:junit-ktx:$test_ext_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_test_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.koin:koin-test:$koin_test_version"
 
     implementation project(path: ":common")
 }

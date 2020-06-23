@@ -2,4 +2,6 @@
     <string name="app_name">FormationConserto</string>
     <string name="search_hint">Mots à rechercher</string>
     <string name="search">rechercher</string>
+    <string name="search_success">Recherche OK</string>
+    <string name="search_error">Au moins 3 caractères nécessaire</string>
 </resources>
