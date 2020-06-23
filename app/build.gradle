@@ -48,4 +48,5 @@ dependencies {
     testImplementation "org.koin:koin-test:$koin_test_version"
 
     implementation project(path: ":common")
+    implementation project(path: ":network")
 }

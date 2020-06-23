@@ -5,7 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
-import pro.conserto.formationconserto.module.appModule
+import pro.conserto.network.module.networkModule
 
 class AppApplication : Application() {
 
@@ -15,7 +15,7 @@ class AppApplication : Application() {
         startKoin {
             androidContext(this@AppApplication)
             androidLogger(Level.DEBUG)
-            modules()
+            modules(listOf(networkModule))
         }
     }
 
