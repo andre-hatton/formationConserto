@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -46,6 +47,11 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
 
         main_list.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
         main_list.adapter = _mainAdapter
+
+        _mainAdapter.onItemClick = {
+            val direction = MainHomeFragmentDirections.actionHomeToAnimeFragment(it)
+            findNavController().navigate(direction)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

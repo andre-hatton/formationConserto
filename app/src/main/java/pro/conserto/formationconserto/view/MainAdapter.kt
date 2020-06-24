@@ -14,6 +14,9 @@ import pro.conserto.network.entity.Anime
  */
 class MainAdapter(private val _animeList: MutableList<Anime> = mutableListOf()): RecyclerView.Adapter<MainAdapter.MainHolder>() {
 
+    // callback sur le click d'un item
+    var onItemClick: (Anime) -> Unit = {}
+
     /**
      * Met à jour la liste des données dans la liste
      * @param animeList La liste d'anime à afficher
@@ -36,6 +39,10 @@ class MainAdapter(private val _animeList: MutableList<Anime> = mutableListOf()):
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val anime = _animeList[position]
         holder.title.text = anime.title
+
+        holder.itemView.setOnClickListener {
+            onItemClick(anime)
+        }
     }
 
     /**

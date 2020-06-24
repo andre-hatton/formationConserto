@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/mainHomeFragment">
+
+    <fragment
+        android:id="@+id/mainHomeFragment"
+        android:name="pro.conserto.formationconserto.view.MainHomeFragment"
+        android:label="fragment_main_home"
+        tools:layout="@layout/fragment_main_home" >
+        <action
+            android:id="@+id/action_home_to_anime_fragment"
+            app:destination="@id/animeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeFragment"
+        android:name="pro.conserto.formationconserto.view.AnimeFragment"
+        android:label="fragment_anime"
+        tools:layout="@layout/fragment_anime" >
+        <argument
+            android:name="anime"
+            app:argType="pro.conserto.network.entity.Anime" />
+    </fragment>
+
+</navigation>

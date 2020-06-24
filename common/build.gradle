@@ -60,4 +60,7 @@ dependencies {
     // manage thread
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
+    api "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    api "androidx.navigation:navigation-ui-ktx:$navigation_version"
 }

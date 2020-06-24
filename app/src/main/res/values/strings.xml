@@ -6,4 +6,6 @@
     <string name="search_error">Au moins 3 caractères nécessaire</string>
     <string name="unknown_error">Erreur inconnu</string>
     <string name="http_error">Erreur http</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
