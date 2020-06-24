@@ -1,12 +1,10 @@
 package pro.conserto.formationconserto.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -57,8 +55,10 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val onChanged: (ErrorType) -> Unit = {
-            displayError(it)
+        val onChanged: (ErrorType?) -> Unit = {
+            it?.let {
+                displayError(it)
+            }
         }
 
         _mainViewModel.errorLiveData.observe(viewLifecycleOwner, onChanged)

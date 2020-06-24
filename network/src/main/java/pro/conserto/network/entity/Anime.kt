@@ -12,5 +12,7 @@ data class Anime(
     val image: String,
     val title: String,
     val airing: Boolean,
-    val score: Float
+    val score: Float?,
+    @Json(name = "synopsis")
+    val description: String
 ) : Parcelable

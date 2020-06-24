@@ -17,6 +17,8 @@ object ResponseApi {
         return when  {
             request.url.encodedPath.contains("search/anime") ->
                 javaClass.classLoader?.getResourceAsStream("searchAnime.json")?.bufferedReader()?.readText() ?: ""
+            request.url.encodedPath.contains("anime/") ->
+                javaClass.classLoader?.getResourceAsStream("anime.json")?.bufferedReader()?.readText() ?: ""
             else -> success
         }
     }

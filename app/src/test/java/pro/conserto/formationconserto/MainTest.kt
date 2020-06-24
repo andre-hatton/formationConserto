@@ -8,9 +8,6 @@ import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.*
 import org.junit.runner.RunWith
@@ -35,7 +32,7 @@ import pro.conserto.network.module.networkTestModule
 class MainTest : KoinTest {
 
     @RelaxedMockK
-    lateinit var errorObserver: Observer<ErrorType>
+    lateinit var errorObserver: Observer<ErrorType?>
 
     @RelaxedMockK
     lateinit var resultObserver: Observer<AnimeList>
@@ -99,14 +96,16 @@ class MainTest : KoinTest {
                 "https://cdn.myanimelist.net/images/anime/8/41125.jpg?s=78a6e73a2cd5856b28d8c182cd5a1a22",
                 "Fate/Zero 2nd Season",
                 false,
-                8.61f
+                8.61f,
+                description = ""
             ),
             Anime(
                 19165,
                 "https://cdn.myanimelist.net/images/anime/7/51943.jpg?s=9b4fd6155e0fef8b6bd4d357ea510861",
                 "Fate/Zero Cafe",
                 false,
-                5.94f
+                5.94f,
+                description = ""
             )
         )
     )

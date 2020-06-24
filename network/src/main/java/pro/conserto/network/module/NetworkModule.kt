@@ -13,11 +13,12 @@ import java.util.concurrent.TimeUnit
 
 val networkModule = module {
     single { Moshi.Builder().add(KotlinJsonAdapterFactory()).build() }
-    single { provideJikanApi(get()) }
+    single { provideClient() }
+    single { provideJikanApi(get(), get()) }
 }
 
-private fun provideJikanApi(moshi: Moshi): JikanApi {
-    val retrofit = provideRetrofitClient(provideClient(), moshi)
+private fun provideJikanApi(okHttpClient: OkHttpClient, moshi: Moshi): JikanApi {
+    val retrofit = provideRetrofitClient(okHttpClient, moshi)
     return retrofit.create(JikanApi::class.java)
 }
 
