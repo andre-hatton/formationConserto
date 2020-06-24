@@ -1,10 +1,10 @@
-package pro.conserto.formationconserto
+package pro.conserto.formationconserto.view
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
+import pro.conserto.formationconserto.R
 import pro.conserto.formationconserto.module.appModule
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {

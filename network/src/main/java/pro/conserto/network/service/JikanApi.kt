@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface JikanApi {
 
-    @GET("/search")
+    @GET("/search/anime")
     suspend fun searchAnime(@Query("q") search: String): AnimeList
 
 }

@@ -4,4 +4,6 @@
     <string name="search">rechercher</string>
     <string name="search_success">Recherche OK</string>
     <string name="search_error">Au moins 3 caractères nécessaire</string>
+    <string name="unknown_error">Erreur inconnu</string>
+    <string name="http_error">Erreur http</string>
 </resources>

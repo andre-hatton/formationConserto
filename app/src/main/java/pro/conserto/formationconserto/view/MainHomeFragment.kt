@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_main_home.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import pro.conserto.formationconserto.R
+import pro.conserto.formationconserto.viewmodel.ErrorType
 import pro.conserto.formationconserto.viewmodel.MainViewModel
 
 
@@ -41,23 +42,32 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val onChanged: (Boolean) -> Unit = {
-            searchResult(it)
+        val onChanged: (ErrorType) -> Unit = {
+            displayError(it)
         }
 
-        _mainViewModel.searchLiveData.observe(viewLifecycleOwner, onChanged)
+        _mainViewModel.errorLiveData.observe(viewLifecycleOwner, onChanged)
         /*_mainViewModel.searchLiveData.observe(viewLifecycleOwner) {
             searchResult(it)
         }*/
+
+        _mainViewModel.searchLiveData.observe(viewLifecycleOwner) {
+            it.result
+        }
     }
 
-    private fun searchResult(success: Boolean) {
+    /**
+     * Affichage des message d'erreur selon le type
+     * @param errorType Type d'erreur reçu
+     */
+    private fun displayError(errorType: ErrorType) {
         view?.let {
-            if (success) {
-                Snackbar.make(it, R.string.search_success, Snackbar.LENGTH_SHORT).show()
-            } else {
-                Snackbar.make(it, R.string.search_error, Snackbar.LENGTH_SHORT).show()
+            val error = when (errorType) {
+                ErrorType.InputError -> R.string.search_error
+                ErrorType.Unknown -> R.string.unknown_error
+                ErrorType.Http -> R.string.http_error
             }
+            Snackbar.make(it, error, Snackbar.LENGTH_SHORT).show()
         }
     }
 }

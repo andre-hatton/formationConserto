@@ -1,6 +1,7 @@
 package pro.conserto.network.module
 
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -11,7 +12,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {
-    single { Moshi.Builder().build() }
+    single { Moshi.Builder().add(KotlinJsonAdapterFactory()).build() }
     single { provideJikanApi(get()) }
 }
 
@@ -42,7 +43,7 @@ private fun provideClient(): OkHttpClient {
  */
 private fun provideRetrofitClient(client: OkHttpClient, moshi: Moshi) =
     Retrofit.Builder()
-        .baseUrl("https://api.jikan.moe/v3")
+        .baseUrl("https://api.jikan.moe/v3/")
         .client(client)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
