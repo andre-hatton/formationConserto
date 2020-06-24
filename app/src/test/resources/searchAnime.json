@@ -1,0 +1,38 @@
+{
+  "request_hash": "request:search:a991ac4e7029370c5f0db807e80cecc4490fb65d",
+  "request_cached": true,
+  "request_cache_expiry": 363177,
+  "results": [
+    {
+      "mal_id": 11741,
+      "url": "https://myanimelist.net/anime/11741/Fate_Zero_2nd_Season",
+      "image_url": "https://cdn.myanimelist.net/images/anime/8/41125.jpg?s=78a6e73a2cd5856b28d8c182cd5a1a22",
+      "title": "Fate/Zero 2nd Season",
+      "airing": false,
+      "synopsis": "As the Fourth Holy Grail War rages on with no clear victor in sight, the remaining Servants and their Masters are called upon by Church supervisor Risei Kotomine, in order to band together and confron...",
+      "type": "TV",
+      "episodes": 12,
+      "score": 8.61,
+      "start_date": "2012-04-08T00:00:00+00:00",
+      "end_date": "2012-06-24T00:00:00+00:00",
+      "members": 696219,
+      "rated": "R"
+    },
+    {
+      "mal_id": 19165,
+      "url": "https://myanimelist.net/anime/19165/Fate_Zero_Cafe",
+      "image_url": "https://cdn.myanimelist.net/images/anime/7/51943.jpg?s=9b4fd6155e0fef8b6bd4d357ea510861",
+      "title": "Fate/Zero Cafe",
+      "airing": false,
+      "synopsis": "The story re-imagines the cast of the Fate/Zero as cute super-deformed characters who open a café, led by Saber as the manager. (Source: ANN)",
+      "type": "Movie",
+      "episodes": 2,
+      "score": 5.94,
+      "start_date": "2013-07-13T00:00:00+00:00",
+      "end_date": "2016-03-19T00:00:00+00:00",
+      "members": 15094,
+      "rated": "G"
+    }
+  ],
+  "last_page": 20
+}

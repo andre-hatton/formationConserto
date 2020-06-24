@@ -1,6 +1,8 @@
 package pro.conserto.formationconserto.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
@@ -13,7 +15,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         loadKoinModules(_koinModules)
     }
 
@@ -21,5 +22,4 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         unloadKoinModules(_koinModules)
         super.onDestroy()
     }
-
 }

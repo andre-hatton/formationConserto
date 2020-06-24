@@ -52,7 +52,7 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
         }*/
 
         _mainViewModel.searchLiveData.observe(viewLifecycleOwner) {
-            it.result
+            it.results
         }
     }
 
