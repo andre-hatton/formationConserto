@@ -23,7 +23,6 @@ class MainViewModel(private val _mainRepository: MainRepository) : ViewModel() {
         get() = _errorLiveData
 
 
-
     /**
      * Vérifie que la recherche fait au moins 3 caractères et fait l'appel api et retourne le resultat
      * @param text Texte de la recherche

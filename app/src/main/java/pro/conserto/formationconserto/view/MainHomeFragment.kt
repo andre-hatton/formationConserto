@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_main_home.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -25,6 +27,10 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
 
     private val _mainViewModel: MainViewModel by sharedViewModel()
 
+    private val _mainAdapter by lazy {
+        MainAdapter()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -37,6 +43,9 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
                 Snackbar.make(view, R.string.search_error, Snackbar.LENGTH_SHORT).show()
             }*/
         }
+
+        main_list.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
+        main_list.adapter = _mainAdapter
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -52,7 +61,7 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
         }*/
 
         _mainViewModel.searchLiveData.observe(viewLifecycleOwner) {
-            it.results
+            _mainAdapter.setAnimes(it.results)
         }
     }
 
