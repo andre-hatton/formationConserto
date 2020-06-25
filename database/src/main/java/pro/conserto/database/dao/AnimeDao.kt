@@ -21,7 +21,7 @@ interface AnimeDao {
         FROM anime
         WHERE id = :id
     """)
-    fun getAnime(id: Int): Flow<Anime>
+    fun getAnime(id: Int): Flow<Anime?>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(anime: Anime): Long

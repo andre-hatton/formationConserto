@@ -15,8 +15,12 @@ class FavoriteViewModel(private val _favoriteRepository: FavoriteRepository) : V
         }
     }
 
-    private val _currentAnimeLiveData = MutableLiveData<Anime>()
-    val animeLiveData: LiveData<Anime>
+    private val _deleteLiveData = MutableLiveData<Boolean?>()
+    val deleteLiveData: LiveData<Boolean?>
+        get() = _deleteLiveData
+
+    private val _currentAnimeLiveData = MutableLiveData<Anime?>()
+    val animeLiveData: LiveData<Anime?>
 
     init {
         animeLiveData = _currentAnimeLiveData.switchMap {
@@ -51,11 +55,18 @@ class FavoriteViewModel(private val _favoriteRepository: FavoriteRepository) : V
      */
     fun delete(anime: Anime) {
         viewModelScope.launch {
-            _favoriteRepository.delete(anime)
+            _deleteLiveData.value = _favoriteRepository.delete(anime) > 0
         }
     }
 
     fun setCurrentAnime(anime: Anime) {
         _currentAnimeLiveData.value = anime
+    }
+
+    /**
+     * Nettois les données du ViewModel
+     */
+    fun clean() {
+        _deleteLiveData.value = null
     }
 }
