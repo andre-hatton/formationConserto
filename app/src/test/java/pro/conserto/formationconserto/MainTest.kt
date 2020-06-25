@@ -97,7 +97,7 @@ class MainTest : KoinTest {
                 "Fate/Zero 2nd Season",
                 false,
                 8.61f,
-                description = ""
+                description = "As the Fourth Holy Grail War rages on with no clear victor in sight, the remaining Servants and their Masters are called upon by Church supervisor Risei Kotomine, in order to band together and confron..."
             ),
             Anime(
                 19165,
@@ -105,7 +105,7 @@ class MainTest : KoinTest {
                 "Fate/Zero Cafe",
                 false,
                 5.94f,
-                description = ""
+                description = "The story re-imagines the cast of the Fate/Zero as cute super-deformed characters who open a café, led by Saber as the manager. (Source: ANN)"
             )
         )
     )

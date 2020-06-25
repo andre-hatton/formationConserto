@@ -8,6 +8,8 @@ import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
@@ -56,7 +58,7 @@ class AnimeTest : KoinTest {
         _animeViewModel.animeLiveData.observeForever(animeObserver)
 
         _animeViewModel.getAnime(Anime(id = 356, description = "", airing = false, image = "", score = 0f, title = ""))
-
+        delay(1000L)
         verify {
             animeObserver.onChanged(anime)
         }
