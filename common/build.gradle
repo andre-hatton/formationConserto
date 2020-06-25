@@ -66,4 +66,7 @@ dependencies {
 
     // image loader
     api "io.coil-kt:coil:$coil_version"
+
+    // CoroutineWorker library
+    api "androidx.work:work-runtime-ktx:$work_runtime_ktx"
 }

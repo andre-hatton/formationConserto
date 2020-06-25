@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.adapter_main_home.view.*
 import pro.conserto.database.entity.Anime
 import pro.conserto.formationconserto.R
 import pro.conserto.formationconserto.tools.AnimeDiffUtil
+import pro.conserto.formationconserto.tools.setList
 
 /**
  * Gestion des item dans la liste d'accueil
@@ -23,8 +24,7 @@ class FavoriteAdapter(private val _animeList: MutableList<Anime> = mutableListOf
 
     fun setAnimes(animeList: List<Anime>) {
         val diffUtil = DiffUtil.calculateDiff(AnimeDiffUtil(_animeList, animeList))
-        _animeList.clear()
-        _animeList.addAll(animeList)
+        _animeList.setList(animeList)
         diffUtil.dispatchUpdatesTo(this)
     }
 

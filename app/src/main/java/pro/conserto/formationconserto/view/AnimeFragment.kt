@@ -60,7 +60,6 @@ class AnimeFragment : Fragment(R.layout.fragment_anime) {
                 }
                 it.imagePath = file.absolutePath
 
-
                 _favoriteViewModel.addFavorite(it)
             }
         }

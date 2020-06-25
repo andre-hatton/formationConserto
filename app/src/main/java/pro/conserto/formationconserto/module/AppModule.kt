@@ -13,6 +13,7 @@ val appModule = module {
     single { FavoriteRepository(get()) }
     single { MainRepository(get()) }
     single { AnimeRepository(get()) }
+
     viewModel { MainViewModel(get()) }
     viewModel { AnimeViewModel(get()) }
     viewModel { FavoriteViewModel(get()) }

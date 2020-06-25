@@ -33,5 +33,4 @@ class AppApplication : Application(), ImageLoaderFactory {
             modules(listOf(networkModule))
         }
     }
-
 }
