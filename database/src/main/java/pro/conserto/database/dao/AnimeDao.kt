@@ -16,6 +16,13 @@ interface AnimeDao {
     """)
     fun getAnimes(): Flow<List<Anime>>
 
+    @Query("""
+        SELECT *
+        FROM anime
+        WHERE id = :id
+    """)
+    fun getAnime(id: Int): Flow<Anime>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(anime: Anime): Long
 

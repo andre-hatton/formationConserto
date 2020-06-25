@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_favorite_home.*
@@ -25,6 +26,11 @@ class FavoriteHomeFragment : Fragment(R.layout.fragment_favorite_home) {
 
         favorite_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         favorite_list.adapter = _animeAdapter
+
+        _animeAdapter.onItemClick = {
+            _favoriteViewModel.setCurrentAnime(it)
+            findNavController().navigate(R.id.action_favorite_list_to_favorite)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -36,7 +42,6 @@ class FavoriteHomeFragment : Fragment(R.layout.fragment_favorite_home) {
     }
 
     private fun displayAnimes(animes: List<Anime>) {
-        println(animes)
         _animeAdapter.setAnimes(animes)
     }
 

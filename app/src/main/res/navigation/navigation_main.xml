@@ -32,7 +32,7 @@
         android:label="fragment_favorite_home"
         tools:layout="@layout/fragment_favorite_home" >
         <action
-            android:id="@+id/action_favoriteHomeFragment_to_favoriteFragment"
+            android:id="@+id/action_favorite_list_to_favorite"
             app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment

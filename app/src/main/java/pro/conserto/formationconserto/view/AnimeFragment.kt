@@ -1,6 +1,9 @@
 package pro.conserto.formationconserto.view
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
@@ -17,6 +20,8 @@ import pro.conserto.formationconserto.viewmodel.ErrorType
 import pro.conserto.formationconserto.viewmodel.FavoriteViewModel
 import pro.conserto.formationconserto.viewmodel.MainViewModel
 import pro.conserto.network.entity.Anime
+import java.io.File
+import java.util.*
 
 
 class AnimeFragment : Fragment(R.layout.fragment_anime) {
@@ -42,6 +47,20 @@ class AnimeFragment : Fragment(R.layout.fragment_anime) {
 
         anime_add_favorite.setOnClickListener {
             _anime?.let {
+                val drawable: BitmapDrawable = anime_image.drawable as BitmapDrawable
+                val bitmap = drawable.bitmap
+                val ext = it.image.substringAfterLast(".")
+                val imageName = it.image.substringAfterLast("/")
+                val file = File(activity?.getExternalFilesDir(Environment.DIRECTORY_PICTURES), imageName)
+                val outputStream = file.outputStream()
+                when (ext.toLowerCase(Locale.getDefault())) {
+                    "jpeg", "jpg" -> bitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream)
+                    "png" -> bitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream)
+                    "webp" -> bitmap.compress(Bitmap.CompressFormat.WEBP, 80, outputStream)
+                }
+                it.imagePath = file.absolutePath
+
+
                 _favoriteViewModel.addFavorite(it)
             }
         }

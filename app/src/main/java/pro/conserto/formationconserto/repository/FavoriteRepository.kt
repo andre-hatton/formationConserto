@@ -13,4 +13,6 @@ class FavoriteRepository(private val _animeDao: AnimeDao) {
 
     suspend fun delete(anime: Anime) = _animeDao.delete(anime)
 
+    fun getAnime(anime: Anime) = _animeDao.getAnime(anime.id)
+
 }

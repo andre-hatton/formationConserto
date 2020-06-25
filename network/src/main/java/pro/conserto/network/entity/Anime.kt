@@ -2,6 +2,7 @@ package pro.conserto.network.entity
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -15,4 +16,7 @@ data class Anime(
     val score: Float?,
     @Json(name = "synopsis")
     val description: String
-) : Parcelable
+) : Parcelable {
+    @IgnoredOnParcel
+    var imagePath: String = ""
+}
