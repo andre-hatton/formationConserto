@@ -14,6 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import pro.conserto.formationconserto.R
 import pro.conserto.formationconserto.viewmodel.AnimeViewModel
 import pro.conserto.formationconserto.viewmodel.ErrorType
+import pro.conserto.formationconserto.viewmodel.FavoriteViewModel
 import pro.conserto.formationconserto.viewmodel.MainViewModel
 import pro.conserto.network.entity.Anime
 
@@ -24,6 +25,9 @@ class AnimeFragment : Fragment(R.layout.fragment_anime) {
 
     private val _animeViewModel: AnimeViewModel by sharedViewModel()
     private val _mainViewModel: MainViewModel by sharedViewModel()
+    private val _favoriteViewModel: FavoriteViewModel by sharedViewModel()
+
+    private var _anime: Anime? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,12 +39,21 @@ class AnimeFragment : Fragment(R.layout.fragment_anime) {
             cleanView()
             findNavController().navigateUp()
         }
+
+        anime_add_favorite.setOnClickListener {
+            _anime?.let {
+                _favoriteViewModel.addFavorite(it)
+            }
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        // getter de la valeur du livedate à ne pas utiliser
+        // _animeViewModel.animeLiveData.value
         _animeViewModel.animeLiveData.observe(viewLifecycleOwner) {
+            _anime = it
             it?.let {
                 displayAnime(it)
             }

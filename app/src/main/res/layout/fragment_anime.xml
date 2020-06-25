@@ -25,6 +25,15 @@
                 tools:text="Titre"/>
 
             <ImageView
+                android:id="@+id/anime_add_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:src="@android:drawable/btn_star"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
                 android:id="@+id/anime_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

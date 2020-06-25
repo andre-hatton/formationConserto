@@ -50,6 +50,10 @@ class MainHomeFragment : Fragment(R.layout.fragment_main_home) {
             val direction = MainHomeFragmentDirections.actionHomeToAnimeFragment(it)
             findNavController().navigate(direction)
         }
+
+        main_favorite.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_favorite)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

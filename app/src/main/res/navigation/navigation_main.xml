@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_home_to_anime_fragment"
             app:destination="@id/animeFragment" />
+        <action
+            android:id="@+id/action_home_to_favorite"
+            app:destination="@id/favoriteHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/animeFragment"
@@ -23,5 +26,19 @@
             android:name="anime"
             app:argType="pro.conserto.network.entity.Anime" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteHomeFragment"
+        android:name="pro.conserto.formationconserto.view.FavoriteHomeFragment"
+        android:label="fragment_favorite_home"
+        tools:layout="@layout/fragment_favorite_home" >
+        <action
+            android:id="@+id/action_favoriteHomeFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="pro.conserto.formationconserto.view.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_anime" />
 
 </navigation>

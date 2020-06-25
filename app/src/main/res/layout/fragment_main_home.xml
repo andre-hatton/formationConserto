@@ -19,6 +19,15 @@
         android:hint="@string/search_hint"/>
 
     <Button
+        android:id="@+id/main_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_media_pause"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/favorite"/>
+
+    <Button
         android:id="@+id/main_search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

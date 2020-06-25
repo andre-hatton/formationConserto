@@ -1,2 +1,2 @@
-include ':app', ':common', ':network'
+include ':app', ':common', ':network', ':database'
 rootProject.name = "FormationConserto"
